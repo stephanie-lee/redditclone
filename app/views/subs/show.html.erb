@@ -1,0 +1,15 @@
+<h3> <%= @sub.title %> </h3>
+<p>
+  <%= @sub.description %>
+</p>
+
+<h4>Posts:</h4>
+<% @sub.posts.each do |current_post| %>
+  <%= render "post", post: current_post %>
+<% end %>
+
+<!-- sub posts  -->
+<% if @sub.is_moderator?(current_user) %>
+  <%= link_to "Edit this Sub", edit_sub_path %><br>
+<% end %>
+<%= link_to "Back to All Subs!", subs_path %>

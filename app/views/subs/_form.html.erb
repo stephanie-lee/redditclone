@@ -1,0 +1,26 @@
+<% action = sub.persisted? ? sub_path(sub) : subs_path %>
+<% value = sub.persisted? ? "patch" : "post" %>
+
+<form action="<%= action %>" method="post">
+  <input type="hidden" name="_method" value="<%= value %>">
+  <%= auth_token %>
+
+  <label for="sub_title">Title: </label>
+  <input type="text"
+    name="sub[title]"
+    value="<%= sub.title %>"
+    id="sub_title">
+  <br><br>
+
+  <label for="sub_desc">Description: </label>
+  <br>
+
+  <textarea name="sub[description]"
+    rows="8"
+    cols="40"
+    id="sub_desc"><%= sub.description %></textarea>
+  <br><br>
+
+  <input type="submit" value="Submit!">
+
+</form>

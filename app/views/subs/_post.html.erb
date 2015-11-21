@@ -1,0 +1,11 @@
+<%= post.url != "" ? (link_to "#{post.title}", ensure_http(post.url)) : "#{post.title}" %>
+
+<br>
+
+<label for="author_name">by: <%= post.author.email %></label>
+<br>
+<%= link_to "Edit", edit_post_path(post) if post.is_author?(current_user) %>
+<p>
+  &nbsp;&nbsp;&nbsp;<%= post.content %>
+</p>
+<br>
